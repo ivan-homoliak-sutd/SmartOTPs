@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:onClick="resetAuthenticator"
+        android:text="@string/btn_reset" />
+
+    <Button
+        android:id="@+id/btn_show_seed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/btn_reset"
+        android:onClick="showSeed"
+        android:text="@string/btn_show_seed" />
+
+    <Button
+        android:id="@+id/btn_show_cfg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/btn_show_seed"
+        android:onClick="showCfg"
+        android:text="@string/btn_show_cfg" />
+
+    <EditText
+        android:id="@+id/edit_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/edit_id_hint"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edit_id"
+        android:layout_alignStart="@+id/edit_id"
+        android:text="@string/text_id"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_id"
+        android:layout_centerHorizontal="true"
+        android:text="@string/btn_submit"
+        android:visibility="invisible"
+        android:onClick="getSecretToken" />
+
+    <TextView
+        android:id="@+id/text_not_gen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/text_not_gen"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text_seed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_not_gen"
+        android:layout_alignStart="@+id/text_not_gen"
+        android:layout_marginTop="20dp"
+        android:text="@string/text_passphrase"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_seed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_seed"
+        android:layout_alignStart="@+id/text_not_gen"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/edit_passphrase" />
+
+    <Button
+        android:id="@+id/btn_gen_rnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/text_not_gen"
+        android:layout_below="@+id/text_seed"
+        android:layout_alignTop="@id/edit_seed"
+        android:onClick="generateRandomSeed"
+        android:text="@string/btn_gen_rnd" />
+
+    <TextView
+        android:id="@+id/text_leaves_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/text_not_gen"
+        android:layout_alignTop="@+id/edit_seed"
+        android:layout_marginTop="60dp"
+        android:text="@string/text_leaves_num"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spn_leaves_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/text_leaves_num"
+        android:layout_below="@id/text_leaves_num"
+        android:layout_alignEnd="@id/btn_gen_rnd"
+        android:entries="@array/spn_leaves_num" />
+
+    <TextView
+        android:id="@+id/text_sub_leaves_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/text_not_gen"
+        android:layout_alignTop="@+id/text_leaves_num"
+        android:layout_marginTop="60dp"
+        android:text="@string/text_sub_leaves_num"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spn_sub_leaves_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/text_not_gen"
+        android:layout_below="@id/text_sub_leaves_num"
+        android:layout_alignEnd="@id/btn_gen_rnd"
+        android:entries="@array/spn_sub_leaves_num" />
+
+    <TextView
+        android:id="@+id/text_chain_len"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/text_not_gen"
+        android:layout_alignTop="@+id/text_sub_leaves_num"
+        android:layout_marginTop="60dp"
+        android:text="@string/text_chain_num"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spn_chain_len"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/text_not_gen"
+        android:layout_below="@id/text_chain_len"
+        android:layout_alignEnd="@id/btn_gen_rnd"
+        android:entries="@array/spn_chain_len" />
+
+    <TextView
+        android:id="@+id/text_tokens_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/text_not_gen"
+        android:layout_below="@+id/spn_chain_len"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold"
+        android:text="@string/text_tokens_num" />
+
+    <TextView
+        android:id="@+id/text_main_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/text_not_gen"
+        android:layout_below="@+id/text_tokens_num"
+        android:layout_marginTop="20dp"
+        android:text="@string/text_password"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_main_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/text_not_gen"
+        android:layout_alignEnd="@+id/text_not_gen"
+        android:layout_below="@+id/text_main_password"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/edit_main_password_hint" />
+
+    <Button
+        android:id="@+id/btn_generate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:onClick="generateSecretTokens"
+        android:text="@string/btn_generate" />
+
+</RelativeLayout>

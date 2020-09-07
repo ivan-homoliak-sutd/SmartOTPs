@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Authenticator</string>
+    <string name="text_not_gen">Secret tokens has not been generated yet</string>
+    <string name="btn_generate">Generate</string>
+    <string name="edit_id_hint">Enter ID</string>
+    <string name="text_id">Token ID:</string>
+    <string name="edit_passphrase">Enter your seed</string>
+    <string name="btn_gen_rnd">Rnd</string>
+    <string name="text_passphrase">Seed</string>
+    <string name="text_leaves_num">Number of leaves</string>
+    <string name="text_sub_leaves_num">Number of leaves in sub-tree</string>
+    <string name="text_chain_num">Hash-chain length</string>
+    <string name="edit_tokens_num">Enter number of tokens</string>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_reset">Reset</string>
+    <string name="btn_show_seed">Show Seed</string>
+    <string name="text_password">Password</string>
+    <string name="edit_main_password_hint">Enter password here</string>
+    <string name="text_tokens_num">Number of tokens generated</string>
+    <string name="btn_show_cfg">Show Cfg</string>
+    <string-array name="spn_leaves_num">
+        <item>8</item>
+        <item>16</item>
+        <item>128</item>
+        <item>256</item>
+        <item>512</item>
+        <item>1,024</item>
+        <item>2,048</item>
+        <item>32,768</item>
+        <item>1,048,576</item>
+        <item>1,073,741,824</item>
+    </string-array>
+    <string-array name="spn_sub_leaves_num">
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>128</item>
+        <item>256</item>
+        <item>512</item>
+        <item>1,024</item>
+        <item>2,048</item>
+    </string-array>
+    <string-array name="spn_chain_len">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>64</item>
+        <item>128</item>
+        <item>256</item>
+        <item>512</item>
+    </string-array>
+</resources>
