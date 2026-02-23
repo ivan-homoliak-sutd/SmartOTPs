@@ -211,11 +211,12 @@ contract WalletHandle {
      * The max size of sides is equal to MAX_LEN_OF_PROOF.
      */
     function confirmOper(bytes16[] memory confirmMaterial, bytes20 sides, uint32 otpID) public
-        // m_checkOnlyOwner() // optional
+        m_checkOnlyOwner() // optional        
         m_checkEnoughBallance(pendingOpers[otpID].param, pendingOpers[otpID].operation)
         m_checkDailyLimits(pendingOpers[otpID].param, pendingOpers[otpID].operation) // early check to save gas for 2FA verification if daily limits are exceeded
     {
 
+        require(true == pendingOpers[otpID].pending, "Operation has already been executed."); // To avoid reexecuting operations mutliple times. Found by https://paradigm.xyz/evmbench/
         _checkProofOf2FA(otpID, confirmMaterial, sides); // After this point is 2FA successful.
         _executeOperation(pendingOpers[otpID]);
         pendingOpers[otpID].pending = false; // set just pending status to save 6K gas in contrast to 'delete pendingOpers[otpID]'
